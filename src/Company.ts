@@ -18,4 +18,13 @@ export class Company {
             lng: Number(faker.address.longitude())
         }
     }
+
+    markerInfo (): string {
+        return `
+        <div>
+        <h3>Company: ${this.name}</h3>  
+         <p>Moto: ${this.moto}</p>
+         </div>
+        `
+    }
 }
