@@ -1,3 +1,5 @@
+//  npm install @faker-js/faker
+
 import { faker } from "@faker-js/faker";
 
 export class Company {
@@ -5,7 +7,7 @@ export class Company {
     moto: string
     location: {
         lat: number
-        lon: number
+        lng: number
     }
 
     constructor () {
@@ -13,7 +15,7 @@ export class Company {
         this.moto = faker.company.catchPhrase()
         this.location = {
             lat: Number(faker.address.latitude()),
-            lon: Number(faker.address.longitude())
+            lng: Number(faker.address.longitude())
         }
     }
 }

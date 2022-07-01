@@ -1,13 +1,11 @@
-import {User} from './User'
+import { User } from "./User";
 import { Company } from "./Company";
+import { Map } from "./Map";
 
 const user = new User()
 const company = new Company()
-alert(`
-${user.name}
-${user.location.lat}, ${user.location.lon}
-working at:
-${ company.name }
-"${ company.moto }"
-${ company.location.lat }, ${ company.location.lon }
-`)
+
+const map = new Map('map', user.location)
+
+map.addMarker(user)
+map.addMarker(company)
