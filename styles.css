@@ -29,12 +29,12 @@ body {
     background: #f0f4f6;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.30);
     width: 100px;
-    height: 40px;
+    height: 65px;
     margin: 5px;
     padding-top: 5px;
     padding-left: 10px;
     font-size: medium;
-    font-weight: 400;
+    font-weight: 300;
     cursor: pointer;
 }
 
@@ -52,17 +52,10 @@ body {
     height: 50px;
 }
 
-.card-refresh {
-    z-index: 100;
-    border-radius: 20px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.30);
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 25px;
-    top: 25px;
-    padding: 6px;
-    cursor: pointer;
+h4 {
+    margin-top: 3px;
+    font-size: medium;
+    font-weight: 400;
 }
 
 .card-locate {
@@ -84,10 +77,43 @@ body {
     filter: invert(21%) sepia(99%) saturate(3988%) hue-rotate(266deg) brightness(90%) contrast(96%);
 }
 
-
 .card-locate img {
     margin: 0 auto;
     aspect-ratio: unset;
+}
+
+.card-refresh {
+    z-index: 100;
+    border-radius: 20px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.30);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.reload-popup {
+    z-index: 100;
+    position: absolute;
+    width: 115px;
+    height: 45px;
+    top: 65px;
+    right: 60px;
+    color: darkcyan;
+    background: #f0f4f6;
+    font-weight: 400;
+    font-size: small;
+    padding: 7px;
+    text-align: justify;
+    text-justify: inter-word;
+    opacity: 0.9;
+}
+
+.inactive {
+    visibility: hidden;
 }
 
 @media only screen and (min-aspect-ratio: 1/1) {
