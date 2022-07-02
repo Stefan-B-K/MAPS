@@ -1,14 +1,16 @@
 //  npm install @faker-js/faker
 
 import { faker } from "@faker-js/faker";
+import { Mappable } from "./Map";
 
-export class Company {
+export class Company implements  Mappable {
     name: string
     moto: string
     location: {
         lat: number
         lng: number
     }
+    color: string = 'blue'
 
     constructor () {
         this.name = faker.company.companyName()

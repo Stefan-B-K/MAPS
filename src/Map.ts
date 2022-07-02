@@ -1,15 +1,16 @@
 // npm i @types/node
 //  npm install @types/heremaps
 
-interface Mappable {
+export interface Mappable {
     location: {
         lat: number
         lng: number
     },
-    markerInfo(): string
-}
 
-const API_KEY = process.env.API_KEY
+    markerInfo (): string
+
+    color: string
+}
 
 export class Map {
     private platform: H.service.Platform
@@ -21,17 +22,21 @@ export class Map {
 
     constructor (divID: string, { lat, lng }: { lat: number, lng: number }) {
         this.platform = new H.service.Platform({
-            apikey: API_KEY
+            apikey: process.env.API_KEY
         })
         this.defaultLayers = this.platform.createDefaultLayers()
         this.hereMap = new H.Map(document.getElementById(divID), this.defaultLayers.vector.normal.map, {
-            zoom: 3,
+            zoom: 5,
             center: { lat, lng },
             pixelRatio: window.devicePixelRatio || 1
         });
         this.behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.hereMap));
         this.ui = H.ui.UI.createDefault(this.hereMap, this.defaultLayers)
         this.markerGroup = new H.map.Group()
+
+        window.addEventListener('resize',  () => {
+            this.hereMap.getViewPort().resize();
+        })
 
         this.setInfoBubble()
 

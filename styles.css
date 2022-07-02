@@ -1,0 +1,67 @@
+
+#map, .card-map {
+    aspect-ratio: 3/4;
+    max-height: calc(100vh - 64px);
+    max-width: calc(100vw - 64px);
+}
+
+#map {
+    position: relative;
+}
+
+#info-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: salmon solid 2px;
+    z-index: 999;
+    max-height: calc(40%);
+    max-width: calc(25%);
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: auto;
+}
+
+.card-entity {
+    color: darkcyan;
+    background: white;
+    width: calc(15vw);
+    max-width: 80px;
+    height: calc(20vh);
+    max-height: 100px;
+    margin: 5px;
+}
+
+
+
+@media only screen and (min-aspect-ratio: 1/1) {
+    #map, .card-map {
+        aspect-ratio: 1;
+    }
+}
+
+@media only screen and (min-aspect-ratio: 4/3) {
+    #map, .card-map {
+        aspect-ratio: 4/3;
+    }
+
+    #info-panel {
+        flex-direction: row;
+        max-height: calc(40%);
+        max-width: calc(40%);
+    }
+
+    .card-entity {
+        width: calc(20vw);
+        max-width: 100px;
+        height: calc(15vh);
+        max-height: 80px;
+        margin: 5px;
+    }
+}
+
+
