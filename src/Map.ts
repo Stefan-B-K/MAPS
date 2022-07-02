@@ -6,10 +6,9 @@ export interface Mappable {
         lat: number
         lng: number
     },
+    marked: boolean
 
     markerInfo (): string
-
-    color: string
 }
 
 export class Map {
@@ -34,13 +33,25 @@ export class Map {
         this.ui = H.ui.UI.createDefault(this.hereMap, this.defaultLayers)
         this.markerGroup = new H.map.Group()
 
-        window.addEventListener('resize',  () => {
+        window.addEventListener('resize', () => {
             this.hereMap.getViewPort().resize();
         })
 
         this.setInfoBubble()
 
         this.hereMap.getViewPort().resize()     // bug workaround
+    }
+
+    centerView (entity: Mappable) {
+        if (!entity.marked) {
+            this.addMarker(entity)
+            entity.marked = true
+        }
+        const { lat, lng } = entity.location
+        this.hereMap.getViewModel().setLookAtData({
+            position: { lat, lng },
+            zoom: 5
+        }, true)
     }
 
     addMarker (entity: Mappable): void {

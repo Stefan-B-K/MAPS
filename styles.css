@@ -1,22 +1,20 @@
 
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 #map, .card-map {
+    position: relative;
     aspect-ratio: 3/4;
     max-height: calc(100vh - 64px);
     max-width: calc(100vw - 64px);
-}
-
-#map {
-    position: relative;
 }
 
 #info-panel {
     position: absolute;
     display: flex;
     flex-direction: column;
-    border: salmon solid 2px;
-    z-index: 999;
-    max-height: calc(40%);
-    max-width: calc(25%);
+    z-index: 100;
 }
 
 .card {
@@ -28,15 +26,69 @@
 
 .card-entity {
     color: darkcyan;
-    background: white;
-    width: calc(15vw);
-    max-width: 80px;
-    height: calc(20vh);
-    max-height: 100px;
+    background: #f0f4f6;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.30);
+    width: 100px;
+    height: 40px;
     margin: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: medium;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.card-entity:hover,  .card-refresh:hover  {
+    box-shadow: inset 2px 2px 2px white, inset -2px -2px 2px rgba(0, 0, 0, 0.20);
+}
+
+.card-refresh:hover {
+    box-shadow: inset 1px 1px 1px white, inset -1px -1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.card-content {
+    position: absolute;
+    width: 115px;
+    height: 50px;
+}
+
+.card-refresh {
+    z-index: 100;
+    border-radius: 20px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.30);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.card-locate {
+    display: flex;
+    z-index: 200;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    padding: 2px;
+}
+
+.filter-teal {
+    filter: invert(29%) sepia(79%) saturate(1565%) hue-rotate(154deg) brightness(100%) contrast(100%);
+}
+
+.filter-blueviolet {
+    filter: invert(21%) sepia(99%) saturate(3988%) hue-rotate(266deg) brightness(90%) contrast(96%);
 }
 
 
+.card-locate img {
+    margin: 0 auto;
+    aspect-ratio: unset;
+}
 
 @media only screen and (min-aspect-ratio: 1/1) {
     #map, .card-map {
@@ -51,17 +103,8 @@
 
     #info-panel {
         flex-direction: row;
-        max-height: calc(40%);
-        max-width: calc(40%);
     }
 
-    .card-entity {
-        width: calc(20vw);
-        max-width: 100px;
-        height: calc(15vh);
-        max-height: 80px;
-        margin: 5px;
-    }
 }
 
 

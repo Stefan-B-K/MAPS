@@ -7,7 +7,7 @@ export class User implements Mappable {
         lat: number
         lng: number
     }
-    color: string = 'green'
+    marked: boolean = false
 
     constructor () {
         this.name = faker.name.firstName() + ' ' + faker.name.lastName()
