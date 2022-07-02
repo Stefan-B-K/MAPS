@@ -36,6 +36,7 @@ body {
     font-size: medium;
     font-weight: 300;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .card-entity:hover,  .card-refresh:hover  {
@@ -93,13 +94,14 @@ h4 {
     top: 25px;
     padding: 6px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .reload-popup {
     z-index: 100;
     position: absolute;
-    width: 115px;
-    height: 45px;
+    width: 105px;
+    height: 30px;
     top: 65px;
     right: 60px;
     color: darkcyan;
@@ -109,12 +111,17 @@ h4 {
     padding: 7px;
     text-align: justify;
     text-justify: inter-word;
-    opacity: 0.9;
+    visibility: hidden;
+    opacity: 0;
 }
 
-.inactive {
-    visibility: hidden;
+.reload-popup.popup-show {
+    visibility: visible;
+    opacity: 0.9;
+    animation: popup 0.5s ease-in-out;
 }
+
+
 
 @media only screen and (min-aspect-ratio: 1/1) {
     #map, .card-map {
@@ -130,7 +137,21 @@ h4 {
     #info-panel {
         flex-direction: row;
     }
-
 }
 
+@keyframes popup {
+    0% {
+        opacity: 0;
+        transform: translate(40%, -50%) scale(0.3);
+    }
 
+    70% {
+        opacity: 0.6;
+        transform: translate(-10%, 10%) scale(1.1);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: translate(0%, 0%) scale(1);
+    }
+}

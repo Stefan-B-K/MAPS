@@ -17,8 +17,8 @@ companyButton.onclick = () => map.centerView(company)
 
 const reloadButton = document.querySelector('#reload ') as HTMLButtonElement
 reloadButton.onclick = () => location.reload()
-const reloadPopup = document.querySelector('.reload-popup')
-reloadButton.onmouseover = () => reloadPopup.classList.remove('inactive')
-reloadButton.onmouseleave = () => reloadPopup.classList.add('inactive')
+const reloadPopup = document.querySelector('.reload-popup') as HTMLElement
+reloadButton.onmouseover = () => reloadPopup.classList.add('popup-show')
+reloadButton.onmouseleave = () => reloadPopup.classList.remove('popup-show')
 const map = new Map('map', user.location)
 
